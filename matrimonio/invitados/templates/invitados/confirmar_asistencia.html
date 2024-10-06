@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmar Asistencia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-width: 500px;
+            margin: auto;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        label {
+            margin: 10px 0;
+            display: block;
+            font-size: 18px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Confirmar Asistencia</h1>
+    <p>Hola {{ invitado.nombre }}!</p>
+    <p>Por favor, confirma si asistirás al evento.</p>
+    
+    <form method="post">
+        {% csrf_token %}
+        <label>¿Asistirá al evento?</label>
+        <input type="radio" name="asistira" value="Sí" required> Sí<br>
+        <input type="radio" name="asistira" value="No"> No<br><br>
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
